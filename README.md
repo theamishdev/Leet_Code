@@ -6,6 +6,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Math
 |  |
 | ------- |
+| [0007-reverse-integer](https://github.com/theamishdev/Leet_Code/tree/master/0007-reverse-integer) |
 | [0066-plus-one](https://github.com/theamishdev/Leet_Code/tree/master/0066-plus-one) |
 | [0231-power-of-two](https://github.com/theamishdev/Leet_Code/tree/master/0231-power-of-two) |
 ## Bit Manipulation
