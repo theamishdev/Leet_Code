@@ -25,13 +25,19 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/theamishdev/Leet_Code/tree/master/0001-two-sum) |
+| [0004-median-of-two-sorted-arrays](https://github.com/theamishdev/Leet_Code/tree/master/0004-median-of-two-sorted-arrays) |
 | [0066-plus-one](https://github.com/theamishdev/Leet_Code/tree/master/0066-plus-one) |
 ## Binary Search
 |  |
 | ------- |
+| [0004-median-of-two-sorted-arrays](https://github.com/theamishdev/Leet_Code/tree/master/0004-median-of-two-sorted-arrays) |
 | [0069-sqrtx](https://github.com/theamishdev/Leet_Code/tree/master/0069-sqrtx) |
 ## Hash Table
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/theamishdev/Leet_Code/tree/master/0001-two-sum) |
+## Divide and Conquer
+|  |
+| ------- |
+| [0004-median-of-two-sorted-arrays](https://github.com/theamishdev/Leet_Code/tree/master/0004-median-of-two-sorted-arrays) |
 <!---LeetCode Topics End-->
