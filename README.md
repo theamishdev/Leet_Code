@@ -24,9 +24,14 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Array
 |  |
 | ------- |
+| [0001-two-sum](https://github.com/theamishdev/Leet_Code/tree/master/0001-two-sum) |
 | [0066-plus-one](https://github.com/theamishdev/Leet_Code/tree/master/0066-plus-one) |
 ## Binary Search
 |  |
 | ------- |
 | [0069-sqrtx](https://github.com/theamishdev/Leet_Code/tree/master/0069-sqrtx) |
+## Hash Table
+|  |
+| ------- |
+| [0001-two-sum](https://github.com/theamishdev/Leet_Code/tree/master/0001-two-sum) |
 <!---LeetCode Topics End-->
