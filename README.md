@@ -10,7 +10,6 @@
      width="260"
      style="border-radius: 50%; border: 4px solid #00f5d4; object-fit: cover; box-shadow: 0 0 18px #00f5d4;"/>
 </td>
-
 <td align="center" valign="middle" style="padding: 30px;">
 
 <h1 align="center" style="color: #ffffff;">
