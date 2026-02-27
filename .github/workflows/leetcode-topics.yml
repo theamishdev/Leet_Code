@@ -1,0 +1,51 @@
+name: Auto Update LeetCode Topics
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Generate Topics Section
+        run: |
+          echo "<!---LeetCode Topics Start-->" > generated.txt
+          echo "# LeetCode Topics" >> generated.txt
+          echo "## All Problems" >> generated.txt
+          echo "|  |" >> generated.txt
+          echo "| ------- |" >> generated.txt
+
+          for dir in */ ; do
+            if [[ -f "$dir/README.md" ]]; then
+              folder=$(basename "$dir")
+              echo "| [$folder](https://github.com/${{ github.repository }}/tree/main/$folder) |" >> generated.txt
+            fi
+          done
+
+          echo "<!---LeetCode Topics End-->" >> generated.txt
+
+      - name: Replace Topics Section in README
+        run: |
+          awk '
+          BEGIN {inside=0}
+          /<!---LeetCode Topics Start-->/ {inside=1; next}
+          /<!---LeetCode Topics End-->/ {inside=0; next}
+          !inside {print}
+          ' README.md > temp.txt
+
+          cat temp.txt generated.txt > README_NEW.md
+          mv README_NEW.md README.md
+
+      - name: Commit Changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add README.md
+          git commit -m "Auto-update LeetCode topics" || exit 0
+          git push
