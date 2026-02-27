@@ -1,4 +1,4 @@
-name: Auto Update LeetCode Topics
+name: Auto Generate Structured LeetCode Topics
 
 on:
   push:
@@ -10,36 +10,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Generate Topics Section
         run: |
-          echo "<!---LeetCode Topics Start-->" > generated.txt
-          echo "# LeetCode Topics" >> generated.txt
-          echo "## All Problems" >> generated.txt
-          echo "|  |" >> generated.txt
-          echo "| ------- |" >> generated.txt
+          echo "<!---LeetCode Topics Start-->" > generated.md
+          echo "# LeetCode Topics" >> generated.md
 
-          for dir in */ ; do
-            if [[ -f "$dir/README.md" ]]; then
-              folder=$(basename "$dir")
-              echo "| [$folder](https://github.com/${{ github.repository }}/tree/main/$folder) |" >> generated.txt
-            fi
-          done
+          python3 <<EOF
+import json
 
-          echo "<!---LeetCode Topics End-->" >> generated.txt
+repo = "${{ github.repository }}"
+with open("topics.json") as f:
+    data = json.load(f)
 
-      - name: Replace Topics Section in README
+with open("generated.md", "a") as out:
+    for topic, problems in data.items():
+        out.write(f"## {topic}\n")
+        out.write("|  |\n")
+        out.write("| ------- |\n")
+        for p in problems:
+            out.write(f"| [{p}](https://github.com/{repo}/tree/main/{p}) |\n")
+EOF
+
+          echo "<!---LeetCode Topics End-->" >> generated.md
+
+      - name: Replace Section in README
         run: |
           awk '
-          BEGIN {inside=0}
+          BEGIN{inside=0}
           /<!---LeetCode Topics Start-->/ {inside=1; next}
           /<!---LeetCode Topics End-->/ {inside=0; next}
           !inside {print}
-          ' README.md > temp.txt
+          ' README.md > temp.md
 
-          cat temp.txt generated.txt > README_NEW.md
+          cat temp.md generated.md > README_NEW.md
           mv README_NEW.md README.md
 
       - name: Commit Changes
@@ -47,5 +52,5 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add README.md
-          git commit -m "Auto-update LeetCode topics" || exit 0
+          git commit -m "Auto-update structured LeetCode topics" || exit 0
           git push
