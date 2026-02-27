@@ -5,10 +5,10 @@
 <tr>
 
 <td align="center" valign="middle" style="padding: 30px;">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=2000&pause=800&color=00F5D4&center=true&vCenter=true&width=300&height=300&lines=Code.;Compile.;Repeat.;Dominate."
-     alt="Animated Logo"
+<img src="https://www.trypear.ai/images/leetcode.png"
+     alt="LeetCode Logo"
      width="260"
-     style="border-radius: 50%; border: 4px solid #00f5d4; box-shadow: 0 0 18px #00f5d4;"/>
+     style="border-radius: 50%; border: 4px solid #00f5d4; object-fit: cover; box-shadow: 0 0 18px #00f5d4;"/>
 </td>
 
 <td align="center" valign="middle" style="padding: 30px;">
