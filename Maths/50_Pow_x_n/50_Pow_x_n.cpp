@@ -14,7 +14,6 @@ public:
             x *= x;
             p >>= 1;
         }
-
         return ans;
     }
 };
