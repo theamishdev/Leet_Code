@@ -3,7 +3,6 @@
 
 <table style="border-collapse: collapse;">
 <tr>
-
 <td align="center" valign="middle" style="padding: 30px;">
 <img src="https://www.trypear.ai/images/leetcode.png"
      alt="LeetCode Logo"
